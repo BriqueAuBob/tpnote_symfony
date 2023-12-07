@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres{% endblock %}
+
+{% block body %}
+    <form action="{{ path('app_search_show') }}" method="POST" class="container mt-4">
+        <div class="form-group">
+            <label for="search">Rechercher un livre</label>
+            <input type="text" class="form-control" name="search" id="search">
+        </div>
+        <input type="submit" value="Rechercher" class="btn btn-primary">
+    </form>
+{% endblock %}

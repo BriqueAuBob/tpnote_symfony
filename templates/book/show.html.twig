@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre {{book.title}}{% endblock %}
+
+{% block body %}
+    <header class="container mt-4">
+        <h1>Livre {{ book.title }}</h1>
+    </header>
+    <div class="container mt-4">
+        <h3>{{ book.price }}€</h3>
+        {% if book.author is defined %}
+            <h6>Auteur: {{ book.author.name }} {{ book.author.firstName }}</h6>
+        {% endif %}
+        {% if book.drawers is defined and book.drawers|length > 0 %}
+            <p>
+                Dessinateurs: {{ book.drawers|map(drawer => "#{drawer.name} #{drawer.firstName}")|join(', ') }}
+            </p>
+        {% endif %}
+        {% if book.category is defined and hideCategory is not defined %}
+            <a href="{{ path('app_category_show', {'id': book.category.id}) }}" class="btn btn-primary">{{ book.category.label }}</a>
+        {% endif %}
+    </div>
+{% endblock %}

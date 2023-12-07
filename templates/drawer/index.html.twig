@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dessinateurs{% endblock %}
+
+{% block body %}
+    <header class="container mt-4">
+        <h1>
+            Dessinateurs
+        </h1>
+        <a href="{{ path('app_drawer_new') }}" class="btn btn-primary">
+            Ajouter un dessinateur
+        </a>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+            {% for drawer in drawers %}
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    {% include 'components/artist.html.twig' with { artist: drawer } only %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

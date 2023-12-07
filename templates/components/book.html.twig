@@ -1,0 +1,21 @@
+<div class="card">
+    <img src="{{ book.image }}" class="card-img-top" alt="Image">
+    <div class="card-body">
+        <h5 class="card-title">{{ book.title }}</h5>
+        <p class="card-text">{{ book.price }}€</p>
+        {% if book.author is defined %}
+            <h6>Auteur: {{ book.author.name }} {{ book.author.firstName }}</h6>
+        {% endif %}
+        {% if book.drawers is defined and book.drawers|length > 0 %}
+            <p>
+                Dessinateurs: {{ book.drawers|map(drawer => "#{drawer.name} #{drawer.firstName}")|join(', ') }}
+            </p>
+        {% endif %}
+        {% if book.category is defined and hideCategory is not defined %}
+            <a href="{{ path('app_category_show', {'id': book.category.id}) }}" class="btn btn-primary">{{ book.category.label }}</a>
+        {% endif %}
+        <br/>
+        <br/>
+        <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-primary">Voir le livre</a>
+    </div>
+</div>

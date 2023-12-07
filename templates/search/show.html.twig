@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres{% endblock %}
+
+{% block body %}
+    <header class="container mt-4">
+        <h1>Recherche: {{ search }}</h1>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+            {% if books|length > 0 %}
+                {% for book in books %}
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        {% include 'components/book.html.twig' with { book } only %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-sm-12">
+                    <p class="text-center">Aucun livre trouvé</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-sm-4 mb-4 mb-sm-0">
+                    {% include 'components/category.html.twig' with { category } only %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

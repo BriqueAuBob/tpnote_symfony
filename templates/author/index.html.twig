@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteurs{% endblock %}
+
+{% block body %}
+    <header class="container mt-4">
+        <h1>
+            Auteurs
+        </h1>
+        <a href="{{ path('app_author_new') }}" class="btn btn-primary">
+            Ajouter un auteur
+        </a>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+            {% for author in authors %}
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    {% include 'components/artist.html.twig' with { artist: author } only %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel auteur{% endblock %}
+
+{% block body %}
+    <header class="container mt-4">
+        <h1>
+            Création d'un auteur
+        </h1>
+    </header>
+    <div class="container mt-4">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

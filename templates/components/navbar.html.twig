@@ -1,0 +1,24 @@
+{%set items = [
+    { 'route': 'app_home', 'label': 'Accueil' },
+    { 'route': 'app_category', 'label': 'Catégories' },
+    { 'route': 'app_book', 'label': 'Livres' },
+    { 'route': 'app_authors', 'label': 'Auteurs' },
+    { 'route': 'app_drawers', 'label': 'Dessinateurs' },
+    { 'route': 'app_search', 'label': 'Recherche' },
+] %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                {% for item in items %}
+                    <a class="nav-link {% if app.request.get('_route') == item.route %}active{% endif %}" href="{{ path(item.route) }}">{{ item.label }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</nav>
