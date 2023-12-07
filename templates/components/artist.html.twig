@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">{{ artist.name|upper }} {{ artist.firstName }}</h5>
-        <a href="{{ path(artist.job is same as ('Dessinateur') ? 'app_drawer_delete' : 'app_author_edit', { id: artist.id }) }}" class="btn btn-info">
+        <a href="{{ path(artist.job is same as ('Dessinateur') ? 'app_drawer_edit' : 'app_author_edit', { id: artist.id }) }}" class="btn btn-info">
             Modifier
         </a>
         <a href="{{ path(artist.job is same as ('Dessinateur') ? 'app_drawer_delete' : 'app_author_delete', { id: artist.id }) }}" class="btn btn-danger">
